@@ -1,3 +1,5 @@
+This license applies to the lesson material.
+
 The MIT License (MIT)
 
 Copyright (c) 2015 Nancy Soontiens
@@ -20,3 +22,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+-----------------------------------------------------------------------------
+The file 7795-01-JAN-2000_slev.csv contains hourly water level data from the 
+Point Atkinson lighthouse from 2000-2009. The file was downloaded from 
+Fisheries and Oceans Canada and is available at this following url:
+http://www.isdm-gdsi.gc.ca/isdm-gdsi/twl-mne/inventory-inventaire/interval-intervalle-eng.asp?user=isdm-gdsi&region=PAC&tst=1&no=7795&ref=maps-cartes
