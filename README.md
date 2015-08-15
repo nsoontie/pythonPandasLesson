@@ -26,19 +26,15 @@ There is a wealth of information in the pandas documentation.
 Water level data (7795-01-JAN-2000_slev.csv) is from Fisheries and Oceans Canada and is available at this website:
 * http://www.isdm-gdsi.gc.ca/isdm-gdsi/twl-mne/index-eng.htm
 
-
     import pandas as pd
-    
     import matplotlib.pyplot as plt
     import datetime
     import numpy as np
-    
     %matplotlib inline
 
 ##Read the data
 
 It is helpful to understand the structure of your dataset before attempting to read it with pandas.
-
 
     !head 7795-01-JAN-2000_slev.csv
 
@@ -70,22 +66,13 @@ data is a DataFrame object
 
 
     type(data)
-
-
-
-
     pandas.core.frame.DataFrame
-
-
 
 Let's take a quick peak at the dataset.
 
 
     data.head()
-
-
-
-
+    
 <div>
 <table border="1" class="dataframe">
   <thead>
