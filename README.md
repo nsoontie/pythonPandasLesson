@@ -63,6 +63,7 @@ read_csv() has many arguments to help customize the reading of many different cs
 * tell pandas to read the first column as dates (parse_dates=[0])
 * name the columns as 'date' and 'wlev'.
 
+We will use this information to customize how this data set is read by pandas.
 
     data = pd.read_csv('7795-01-JAN-2000_slev.csv', skiprows = 8,
                         index_col=False, parse_dates=[0], names=['date','wlev'])
