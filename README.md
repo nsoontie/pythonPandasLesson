@@ -26,10 +26,15 @@ There is a wealth of information in the pandas documentation.
 Water level data (7795-01-JAN-2000_slev.csv) is from Fisheries and Oceans Canada and is available at this website:
 * http://www.isdm-gdsi.gc.ca/isdm-gdsi/twl-mne/index-eng.htm
 
+##Imports
+
+To start, import pandas and a few other useful modules.
+
     import pandas as pd
     import matplotlib.pyplot as plt
     import datetime
     import numpy as np
+    
     %matplotlib inline
 
 ##Read the data
@@ -64,12 +69,10 @@ read_csv() has many arguments to help customize the reading of many different cs
 
 data is a DataFrame object
 
-
     type(data)
     pandas.core.frame.DataFrame
 
 Let's take a quick peak at the dataset.
-
 
     data.head()
     
@@ -112,14 +115,8 @@ Let's take a quick peak at the dataset.
 </table>
 </div>
 
-
-
-
     data.tail()
-
-
-
-
+    
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -163,10 +160,7 @@ Let's take a quick peak at the dataset.
 
 
     data.describe()
-
-
-
-
+    
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -213,7 +207,6 @@ Let's take a quick peak at the dataset.
 </div>
 
 
-
 Notice that pandas did not apply the summary statistics to the date column.
 
 ##Simple Plots
@@ -222,43 +215,15 @@ pandas has support for some simple plotting features, like line plots, scatter p
 
 Plotting is really easy. pandas even takes care of labels and legends.
 
-
     data.plot('date','wlev')
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xbebd128>
-
-
-
 
 ![png](output_16_1.png)
 
-
-
     data.plot(kind='hist')
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xdc6edd8>
-
-
-
 
 ![png](output_17_1.png)
 
-
-
     data.plot(kind='box')
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xdff4278>
-
-
 
 
 ![png](output_18_1.png)
@@ -272,12 +237,8 @@ We can index and subset the data in different ways.
 
 For example, grab the first two rows.
 
-
     data[0:2]
-
-
-
-
+    
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -302,13 +263,9 @@ For example, grab the first two rows.
 </table>
 </div>
 
-
-
 Note that accessing a single row by the row number doesn't work!
 
-
     data[0]
-
 
     ---------------------------------------------------------------------------
 
@@ -375,23 +332,15 @@ Note that accessing a single row by the row number doesn't work!
 
 In that case, I would recommend using .iloc or slice for one row. 
 
-
     data.iloc[0]
-
-
-
 
     date    2000-01-01 08:00:00
     wlev                   2.95
     Name: 0, dtype: object
 
-
-
+or
 
     data[0:1]
-
-
-
 
 <div>
 <table border="1" class="dataframe">
@@ -413,16 +362,11 @@ In that case, I would recommend using .iloc or slice for one row.
 </div>
 
 
-
 ### By column
 
 For example, print the first few lines of the wlev column.
 
-
     data['wlev'].head()
-
-
-
 
     0    2.95
     1    3.34
@@ -431,23 +375,12 @@ For example, print the first few lines of the wlev column.
     4    3.63
     Name: wlev, dtype: float64
 
-
-
 ### By a condition
 
 For example, subset the data with date greater than Jan 1, 2008. We pass our condition into the square brackets of data.
 
-
     data_20082009 = data[data['date']>datetime.datetime(2008,1,1)]
     data_20082009.plot('date','wlev')
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xe5cbcc0>
-
-
-
 
 ![png](output_30_1.png)
 
@@ -461,9 +394,6 @@ Don't forget to put brackets () around each part of the condition.
 
     data_extreme = data[(data['wlev']>5) | (data['wlev']<0)]
     data_extreme.head()
-
-
-
 
 <div>
 <table border="1" class="dataframe">
@@ -520,9 +450,6 @@ Isolate the year 2006. Use describe to look up the max water level.
     data_2006 = data[(data['date']>=datetime.datetime(2006,1,1)) & (data['date'] < datetime.datetime(2007,1,1))]
     data_2006.describe()
 
-
-
-
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -568,8 +495,6 @@ Isolate the year 2006. Use describe to look up the max water level.
 </table>
 </div>
 
-
-
 The max water level is 5.49m. Use a condition to determine the date.
 
 
@@ -578,15 +503,13 @@ The max water level is 5.49m. Use a condition to determine the date.
 
     53399   2006-02-04 17:00:00
     Name: date, dtype: datetime64[ns]
-    
+
 
 ##Manipulating dates
 
 In the above example, it would have been convenient if we could access only the year part of the time stamp. But this doesn't work:
 
-
     data['date'].year
-
 
     ---------------------------------------------------------------------------
 
@@ -636,9 +559,6 @@ We can use the pandas DatetimeIndex class to make this work. The DatetimeIndex a
 
 
     data.head()
-
-
-
 
 <div>
 <table border="1" class="dataframe">
@@ -713,9 +633,6 @@ We can use the pandas DatetimeIndex class to make this work. The DatetimeIndex a
 
 
     data.describe()
-
-
-
 
 <div>
 <table border="1" class="dataframe">
@@ -807,18 +724,12 @@ We can use the pandas DatetimeIndex class to make this work. The DatetimeIndex a
 </table>
 </div>
 
-
-
 Notice that now pandas applies the describe function to these new columns because it sees them as numerical data.
 
 Now, we can access a single year with a simpler conditional.
 
-
     data_2006 = data[data['Year']==2006]
     data_2006.head()
-
-
-
 
 <div>
 <table border="1" class="dataframe">
@@ -889,20 +800,14 @@ Now, we can access a single year with a simpler conditional.
 </table>
 </div>
 
-
-
 ##Grouping
 
 Sometimes, it is convenient to group data with similar characteristics. We can do this with the groupby() method.
 
 For example, we might want to group by year.
 
-
     data_annual = data.groupby(['Year'])
     data_annual['wlev'].describe().head(20)
-
-
-
 
     Year       
     2000  count    8773.000000
@@ -927,14 +832,11 @@ For example, we might want to group by year.
           min         0.140000
     dtype: float64
 
-
-
 Now the data is organized into groups based on the year of the observation.
 
 ###Aggregating
 
 Once the data is grouped, we may want to summarize it in some way. We can do this with the apply() function. The argument of apply() is a function that we want to apply to each group. For example, we may want to calculate the mean sea level of each year.
-
 
     annual_means = data_annual['wlev'].apply(np.mean)
     print annual_means
@@ -955,16 +857,7 @@ Once the data is grouped, we may want to summarize it in some way. We can do thi
 
 It is also really easy to plot the aggregated data.
 
-
     annual_means.plot()
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xe65fc18>
-
-
-
 
 ![png](output_54_1.png)
 
@@ -994,14 +887,6 @@ We may also want to apply multiple aggregations, like the mean, max, and min. We
 
     annual_summary.plot()
 
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x116bec50>
-
-
-
-
 ![png](output_57_1.png)
 
 
@@ -1009,7 +894,6 @@ We may also want to apply multiple aggregations, like the mean, max, and min. We
 In some instances, we may want to iterate over each group. Each group is identifed by a key. If we know the group's key, then we can access that group with the get_group() method. 
 
 For example, for each year print the mean sea level.
-
 
     for year in data_annual.groups.keys():
         data_year = data_annual.get_group(year)
@@ -1043,14 +927,6 @@ For each year, plot the monthly mean water level.
     plt.legend()
     
 
-
-
-
-    <matplotlib.legend.Legend at 0xe1539b0>
-
-
-
-
 ![png](output_61_1.png)
 
 
@@ -1058,19 +934,11 @@ For each year, plot the monthly mean water level.
 
 We can also group by multiple columns. For example, we might want to group by year and month. That is, a year/month combo defines the group.
 
-
     data_yearmonth = data.groupby(['Year','Month'])
     
     means = data_yearmonth['wlev'].apply(np.mean)
     means.plot()
     
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xc695390>
-
-
 
 
 ![png](output_63_1.png)
@@ -1093,13 +961,6 @@ Now we can resample at a monthly frequency and plot.
     data_monthly.plot()
 
 
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0xc9aec18>
-
-
-
-
 ![png](output_67_1.png)
 
 
@@ -1110,4 +971,3 @@ pandas is a poweful tool for manipulating tabular data. There are many, many oth
 http://pandas.pydata.org/pandas-docs/stable/index.html
 
 
-    
