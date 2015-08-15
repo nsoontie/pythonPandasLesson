@@ -1,9 +1,9 @@
 
 #Exploring tabular data with pandas
 
--**Authors**: Nancy Soontiens
--**Research Field**: Oceanography
--**Lesson Topic**: Using pandas to analyze tabular data
+- **Authors**: Nancy Soontiens
+- **Research Field**: Oceanography
+- **Lesson Topic**: Using pandas to analyze tabular data
 
 In this lesson, we will explore a time series of water levels at the Point Atkinson lighthouse using pandas. This is a basic introduction to pandas and we touch on the following topics:
 
