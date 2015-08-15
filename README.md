@@ -222,16 +222,16 @@ Plotting is really easy. pandas even takes care of labels and legends.
 
     data.plot('date','wlev')
 
-![png](output_16_1.png)
+![png](figures/output_16_1.png)
 
     data.plot(kind='hist')
 
-![png](output_17_1.png)
+![png](figures/output_17_1.png)
 
     data.plot(kind='box')
 
 
-![png](output_18_1.png)
+![png](figures/output_18_1.png)
 
 
 ##Indexing and Subsetting
@@ -387,7 +387,7 @@ For example, subset the data with date greater than Jan 1, 2008. We pass our con
     data_20082009 = data[data['date']>datetime.datetime(2008,1,1)]
     data_20082009.plot('date','wlev')
 
-![png](output_30_1.png)
+![png](figures/output_30_1.png)
 
 
 ###Mulitple conditions
@@ -864,7 +864,7 @@ It is also really easy to plot the aggregated data.
 
     annual_means.plot()
 
-![png](output_54_1.png)
+![png](figures/output_54_1.png)
 
 
 ### Multiple aggregations
@@ -892,7 +892,7 @@ We may also want to apply multiple aggregations, like the mean, max, and min. We
 
     annual_summary.plot()
 
-![png](output_57_1.png)
+![png](figures/output_57_1.png)
 
 
 ### Iterating over groups
@@ -932,7 +932,7 @@ For each year, plot the monthly mean water level.
     plt.legend()
     
 
-![png](output_61_1.png)
+![png](figures/output_61_1.png)
 
 
 ###Multiple groups
@@ -946,7 +946,7 @@ We can also group by multiple columns. For example, we might want to group by ye
     
 
 
-![png](output_63_1.png)
+![png](figures/output_63_1.png)
 
 
 ##Time Series
@@ -966,7 +966,7 @@ Now we can resample at a monthly frequency and plot.
     data_monthly.plot()
 
 
-![png](output_67_1.png)
+![png](figures/output_67_1.png)
 
 
 ##Summary
