@@ -951,7 +951,7 @@ We can also group by multiple columns. For example, we might want to group by ye
 
 ##Time Series
 
-The x-labels on the plot above are a little bit awkward. A different approach would be to resample the data at a monthly freqeuncy. This can be accomplished by setting the date column as an index. Then we can resample the data at a desired frequency. The resampling method is flexible but a common choice is the average.
+The x-labels on the plot above are a little bit awkward. A different approach would be to resample the data at a monthly frequency. This can be accomplished by setting the date column as an index. Then we can resample the data at a desired frequency. The resampling method is flexible but a common choice is the average.
 
 First, we will need to set the index as a DatetimeIndex. Recall, the date_index variable we had assigned earlier. We will add this to the dataframe and make it into the dataframe index.
 
